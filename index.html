@@ -3,117 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رحلة النجاح | أخت حيدر</title>
+    <title>إلى جنّتي .. أمي</title>
     <style>
-        :root { --gold: #ffd700; --deep-blue: #0f2027; --bright-blue: #203a43; }
         body { 
-            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364); 
-            margin: 0; font-family: 'Cairo', sans-serif; 
+            background: radial-gradient(circle, #2c003e, #000); 
+            margin: 0; font-family: 'Arial', sans-serif; 
             display: flex; align-items: center; justify-content: center; 
             height: 100vh; overflow: hidden; color: white;
         }
-
-        /* تأثير النجوم المتلألئة */
-        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
-        .star { position: absolute; background: white; border-radius: 50%; opacity: 0.5; animation: twinkle 2s infinite; }
-        @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; transform: scale(1.2); } }
-
-        /* أيقونات الدراسة المتساقطة */
-        .floating-icons { position: fixed; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-        .icon { position: absolute; animation: fall linear infinite; font-size: 20px; filter: drop-shadow(0 0 5px var(--gold)); }
+        /* القلوب المتساقطة */
+        .hearts-container { position: fixed; top: 0; width: 100%; height: 100%; pointer-events: none; }
+        .heart { position: absolute; animation: fall 4s linear infinite; color: #ffb6c1; font-size: 20px; }
         @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
-
-        .card { 
-            background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(20px);
-            padding: 40px; border-radius: 40px; border: 1px solid rgba(255, 215, 0, 0.3);
-            width: 85%; max-width: 420px; text-align: center; position: relative; z-index: 10;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5); transform: perspective(1000px);
+        .container { 
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px);
+            padding: 30px; border-radius: 40px; border: 2px solid #d4af37;
+            width: 85%; max-width: 400px; text-align: center; position: relative; z-index: 10;
         }
-
-        .img-box { position: relative; display: inline-block; }
-        .img-box::after { content: ''; position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; border: 2px dashed var(--gold); border-radius: 50%; animation: rotate 10s linear infinite; }
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-        .mom-img { width: 130px; height: 130px; border-radius: 50%; margin-bottom: 20px; }
-        
-        h1 { color: var(--gold); font-size: 24px; margin-bottom: 15px; letter-spacing: 1px; }
-        p { font-size: 17px; line-height: 1.8; color: #e0e0e0; min-height: 100px; transition: 0.4s; }
-
-        .progress-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; margin: 20px 0; overflow: hidden; }
-        .progress-fill { width: 20%; height: 100%; background: var(--gold); transition: 0.5s; }
-
+        .mom-img { width: 150px; border-radius: 50%; border: 3px solid #d4af37; margin-bottom: 15px; }
+        h1 { color: #d4af37; font-size: 24px; }
+        p { font-size: 18px; line-height: 1.8; min-height: 120px; }
         .btn { 
-            background: linear-gradient(45deg, #ffd700, #b8860b); color: black; 
-            border: none; padding: 16px; border-radius: 30px; width: 100%; 
-            font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s;
+            background: #d4af37; color: black; border: none; padding: 15px; 
+            border-radius: 25px; width: 100%; font-size: 18px; font-weight: bold; cursor: pointer; 
         }
-        .btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
-
-    <div class="stars" id="stars"></div>
-    <div class="floating-icons" id="icons"></div>
-
-    <div class="card">
-        <div class="img-box">
-            <img src="https://media.tenor.com/OnY_qNqE4p8AAAAi/hello-kitty-shy.gif" class="mom-img" id="gif">
-        </div>
-        <h1 id="title">دكتورة المستقبل ✨</h1>
-        <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
-        <p id="text">أختي الغالية، هذا الموقع صنعته الج حتى يذكرج دائماً انج بطلة ومحد يوكف بوجه حلمج.</p>
-        <button class="btn" onclick="nextPage()" id="btn">مستعدة للرحلة؟ 🚀</button>
+    <div class="hearts-container" id="hearts"></div>
+    <div class="container">
+        <img src="https://media.tenor.com/vH97Zf_9680AAAAi/hello-kitty-flower.gif" class="mom-img">
+        <h1 id="title">ست الحبايب ❤️</h1>
+        <p id="text">أمي.. أنتي العطاء الذي لا ينضب، والقلب الذي لا يمل من الحب. وجودكِ في حياتي هو أعظم نعمة.</p>
+        <button class="btn" onclick="next()">إهداء لأمي الغالية ❤️</button>
     </div>
-
     <script>
-        // خلفية النجوم
-        for (let i = 0; i < 50; i++) {
-            const s = document.createElement('div');
-            s.className = 'star';
-            s.style.width = s.style.height = Math.random() * 3 + 'px';
-            s.style.top = Math.random() * 100 + 'vh';
-            s.style.left = Math.random() * 100 + 'vw';
-            s.style.animationDelay = Math.random() * 2 + 's';
-            document.getElementById('stars').appendChild(s);
-        }
-
-        // أيقونات الدراسة
-        const set = ['📚', '🎓', '💡', '✍️', '📖', '📝', '🏆'];
+        // توليد القلوب
         setInterval(() => {
-            const i = document.createElement('div');
-            i.className = 'icon';
-            i.innerHTML = set[Math.floor(Math.random() * set.length)];
-            i.style.left = Math.random() * 100 + 'vw';
-            i.style.animationDuration = (Math.random() * 2 + 4) + 's';
-            document.getElementById('icons').appendChild(i);
-            setTimeout(() => i.remove(), 5000);
-        }, 500);
+            const h = document.createElement('div');
+            h.className = 'heart'; h.innerHTML = '❤️';
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.getElementById('hearts').appendChild(h);
+            setTimeout(() => h.remove(), 4000);
+        }, 300);
 
-        let step = 0;
-        const pages = [
-            { t: "تعبج مراح يضيع!", p: "كل ساعة سهرتيها، وكل صفحة قريتيها هي طابوقة في بناء مستقبلج العظيم. الله ميضيع تعب الصابرين.", g: "https://media.tenor.com/vH97Zf_9680AAAAi/hello-kitty-flower.gif", pr: "40%" },
-            { t: "تخيلي اللحظة..", p: "تخيلي يوم النتائج وانتي تشوفين اسمج والدرجة اللي ترفع الرأس. تخيلي دموع الفرح بعين أبوج وأمج.", g: "https://media.tenor.com/K_f9_9Obeo0AAAAi/hello-kitty-blushing.gif", pr: "60%" },
-            { t: "حيدر دائماً وياج", p: "لو شكد ما جان الطريق صعب، تذكري اني سندج وضهرج. ادرسي بكل قوتج واني عليّ الدلال والاحتفال!", g: "https://media.tenor.com/V7_5zWv-A60AAAAi/hello-kitty-love.gif", pr: "80%" },
-            { t: "العد التنازلي بدأ", p: "بقت أيام معدودة وتثبتين للعالم كله منو أنتي. شدي الحيل يا دكتورة، الكل ينتظر ابداعج.", g: "https://media.tenor.com/j_6W_Xq-S0AAAAAi/hello-kitty-sanrio.gif", pr: "90%" },
-            { t: "وعد بالنجاح؟", p: "أريدج توعديني الآن.. انو متسمحين لليأس يدخل كلبج. أنتي أقوى من السادس وأقوى من كل الظروف.", g: "https://media.tenor.com/OnY_qNqE4p8AAAAi/hello-kitty-shy.gif", pr: "100%" }
+        let s = 0;
+        const msg = [
+            "لو كتبتُ كل لغات العالم لن أصف قطرة من بحر حنانكِ. أنتي الشمس التي تشرق في أيامي.",
+            "يا جنّتي في الأرض.. تحت قدميكِ وجدنا الراحة، وفي دعائكِ نجد التوفيق. ربي يحفظكِ لي.",
+            "اللهم احفظ أمهاتنا وأطل في أعمارهن، وارحم من رحلت منهن واجعل قبرها روضة من الجنة.",
+            "أحبكِ يا أمي.. كلمة قليلة في حقك، لكنها صادقة من أعماق قلبي ❤️"
         ];
-
-        function nextPage() {
-            if(step < pages.length) {
-                document.getElementById('title').innerText = pages[step].t;
-                document.getElementById('text').innerText = pages[step].p;
-                document.getElementById('gif').src = pages[step].g;
-                document.getElementById('progress').style.width = pages[step].pr;
-                document.getElementById('btn').innerText = "التالي ✨";
-                step++;
+        function next() {
+            if(s < msg.length) {
+                document.getElementById('text').innerText = msg[s];
+                s++;
             } else {
-                document.getElementById('text').innerHTML = "انتهى وقت الكلام.. <br> حلمج يصيحج هسة، روحي ادرسي وعيني باردة عليج! ❤️";
-                document.getElementById('btn').style.display = 'none';
-                document.getElementById('gif').src = "https://media.tenor.com/2m_SAnzXvYgAAAAi/hello-kitty-jet-plane.gif";
+                alert("ربي يحفظ كل الأمهات ❤️");
             }
         }
     </script>
